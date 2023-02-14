@@ -21,7 +21,7 @@ const PieChart = ({ title, value, series, colors }: PieChartProps) => {
       width="fit-content"
     >
       <Stack direction="column">
-        <Typography fontSize={14} color="#808191">
+        <Typography fontSize={16} fontWeight={500} color="#808191">
           {title}
         </Typography>
         <Typography fontSize={24} color="#11142b" fontWeight={700} mt={1}>
