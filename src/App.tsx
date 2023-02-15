@@ -132,9 +132,9 @@ function App() {
             {
               name: 'properties',
               list: AllProperties,
+              show: PropertyDetails,
               create: CreateProperty,
               edit: EditProperty,
-              show: PropertyDetails,
               icon: <VillaOutlined />,
             },
             {

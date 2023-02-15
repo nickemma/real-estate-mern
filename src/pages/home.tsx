@@ -2,7 +2,6 @@ import React from 'react';
 import { useList } from '@pankod/refine-core';
 import { Typography, Box, Stack } from '@pankod/refine-mui';
 import {
-  TopAgent,
   PieChart,
   PropertyReferral,
   PropertyCard,
@@ -10,6 +9,19 @@ import {
 } from 'components/index';
 
 const Home: React.FC = () => {
+  const { data, isLoading, isError } = useList({
+    resource: 'properties',
+    config: {
+      pagination: {
+        pageSize: 4,
+      },
+    },
+  });
+  //@ts-ignore
+  const latestProperties = data?.data?.data || [];
+
+  if (isLoading) return <Typography>Loading...</Typography>;
+  if (isError) return <Typography>Something went wrong!</Typography>;
   return (
     <Box>
       <Typography fontSize={25} fontWeight={700} color="#11142d">
@@ -50,6 +62,33 @@ const Home: React.FC = () => {
         <TotalRevenue />
         <PropertyReferral />
       </Stack>
+      <Box
+        flex={1}
+        borderRadius="15px"
+        padding="20px"
+        bgcolor="#fcfcfc"
+        display="flex"
+        flexDirection="column"
+        minWidth="100%"
+        mt="25px"
+      >
+        <Typography fontSize="18px" fontWeight={600} color="#11142d">
+          Latest Properties
+        </Typography>
+
+        <Box mt="20px" sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
+          {latestProperties.map((property: any) => (
+            <PropertyCard
+              key={property._id}
+              id={property._id}
+              title={property.title}
+              location={property.location}
+              price={property.price}
+              photo={property.photo}
+            />
+          ))}
+        </Box>
+      </Box>
     </Box>
   );
 };

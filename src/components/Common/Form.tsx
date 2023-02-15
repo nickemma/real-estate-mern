@@ -110,7 +110,7 @@ const Form = ({
                 {...register('propertyType', { required: true })}
               >
                 <MenuItem value="apartment">Apartment</MenuItem>
-                <MenuItem value="farmHouse">Farm House</MenuItem>
+                <MenuItem value="farmHouse">Stadium</MenuItem>
                 <MenuItem value="office">Office</MenuItem>
                 <MenuItem value="villa">Villa</MenuItem>
                 <MenuItem value="duplex">Duplex</MenuItem>
