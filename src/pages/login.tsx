@@ -18,7 +18,8 @@ export const Login: React.FC = () => {
       try {
         window.google.accounts.id.initialize({
           ux_mode: 'popup',
-          client_id: process.env.REACT_CLIENT_GOOGLE_ID,
+          client_id:
+            '796476721186-q3thla3ul4gufpmec0tjk9uqhjl71fc7.apps.googleusercontent.com',
           callback: async (res: CredentialResponse) => {
             if (res.credential) {
               login(res);
