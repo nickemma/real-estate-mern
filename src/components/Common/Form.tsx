@@ -16,7 +16,6 @@ import CustomButton from './CustomButton';
 const Form = ({
   type,
   formLoading,
-  onFinish,
   register,
   handleSubmit,
   handleImageChange,
@@ -108,7 +107,7 @@ const Form = ({
                 displayEmpty
                 inputProps={{ 'aria-label': 'Without label' }}
                 defaultValue="apartment"
-                {...register('type', { required: true })}
+                {...register('propertyType', { required: true })}
               >
                 <MenuItem value="apartment">Apartment</MenuItem>
                 <MenuItem value="farmHouse">Farm House</MenuItem>
@@ -196,7 +195,7 @@ const Form = ({
               color="#808191"
               sx={{ wordBreak: 'break-all' }}
             >
-              {propertyImage ? propertyImage?.name : 'No file selected'}
+              {propertyImage?.name}
             </Typography>
           </Stack>
           <CustomButton
@@ -204,7 +203,6 @@ const Form = ({
             title={formLoading ? 'Loading...' : 'submit'}
             backgroundColor="#475be8"
             color="#fcfcfc"
-            
           />
         </form>
       </Box>
